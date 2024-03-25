@@ -1,0 +1,43 @@
+{
+  "name": "cfgdash-fronted",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
+    "clsx": "^2.1.0",
+    "dotenv": "^16.4.1",
+    "lodash-es": "^4.17.21",
+    "next": "14.1.0",
+    "next-nprogress-bar": "^2.3.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-redux": "^8.0.5",
+    "react-use": "^17.5.0",
+    "styled-components": "^5.3.9",
+    "tailwind-merge": "^2.2.2",
+    "tailwind-styled-components": "^2.2.0"
+  },
+  "devDependencies": {
+    "@osn/eslint-config": "^1.0.1",
+    "@svgr/webpack": "^8.1.0",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "postcss": "^8",
+    "prettier": "^3.2.4",
+    "raw-loader": "^4.0.2",
+    "sharp": "^0.33.2",
+    "tailwindcss": "^3.3.0"
+  },
+  "packageManager": "yarn@3.7.0"
+}
