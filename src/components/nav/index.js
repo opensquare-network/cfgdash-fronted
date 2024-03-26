@@ -13,7 +13,9 @@ export default function Nav() {
         <Supply />
       </div>
       <div className="flex flex-col grow gap-[24px]">
-        <ThemeToggle className="max-sm:hidden mr-[24px]" />
+        <div className="flex justify-end mr-[24px] max-sm:hidden">
+          <ThemeToggle />
+        </div>
         <PriceCard />
       </div>
     </div>

@@ -15,6 +15,8 @@ import SystemTreasuryDark from "@/imgs/icons/systemTreasuryDark.svg";
 import SystemTreasuryLight from "@/imgs/icons/systemTreasuryLight.svg";
 import SystemProposalDark from "@/imgs/icons/systemProposalDark.svg";
 import SystemProposalLight from "@/imgs/icons/systemProposalLight.svg";
+import ThemeDark from "@/imgs/icons/themeDark.svg";
+import ThemeLight from "@/imgs/icons/themeLight.svg";
 import LinkWebsite from "@/imgs/icons/linkWebsite.svg";
 import LinkDiscord from "@/imgs/icons/linkDiscord.svg";
 import LinkTelegram from "@/imgs/icons/linkTelegram.svg";
@@ -22,8 +24,8 @@ import LinkTwitter from "@/imgs/icons/linkTwitter.svg";
 import LinkGithub from "@/imgs/icons/linkGithub.svg";
 import LinkCoingecko from "@/imgs/icons/linkCoingecko.svg";
 import LinkCoinmarketcap from "@/imgs/icons/linkCoinmarketcap.svg";
-import ThemeDark from "@/imgs/icons/themeDark.svg";
 import Ring from "@/imgs/icons/ring.svg";
+import { noop } from "lodash-es";
 
 function Icon({ DarkIcon, LightIcon, className = "" }) {
   return (
@@ -98,6 +100,10 @@ const SystemProposal = ({ className }) => (
   />
 );
 
+const Theme = ({ className }) => (
+  <Icon className={className} DarkIcon={ThemeDark} LightIcon={ThemeLight} />
+);
+
 export {
   LogoSymbolCentrifuge,
   SystemPrice,
@@ -107,6 +113,7 @@ export {
   SystemGovernance,
   SystemTreasury,
   SystemProposal,
+  Theme,
   LinkWebsite,
   LinkDiscord,
   LinkTelegram,
@@ -114,6 +121,5 @@ export {
   LinkGithub,
   LinkCoingecko,
   LinkCoinmarketcap,
-  ThemeDark,
   Ring,
 };
