@@ -14,7 +14,25 @@ const nextConfig = {
     config.module.rules.push(
       {
         test: /\.svg$/,
-        use: ["@svgr/webpack"],
+        use: [
+          {
+            loader: "@svgr/webpack",
+            options: {
+              svgoConfig: {
+                plugins: [
+                  {
+                    name: "preset-default",
+                    params: {
+                      overrides: {
+                        removeViewBox: false,
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.md$/,

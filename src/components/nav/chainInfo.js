@@ -1,4 +1,3 @@
-import tw from "tailwind-styled-components";
 import {
   LinkDiscord,
   LinkGithub,
@@ -7,12 +6,7 @@ import {
   LinkWebsite,
   LogoSymbolCentrifuge,
 } from "../icons";
-
-const SocialLinkIconWrapper = tw.a`
-  cursor-pointer
-  [&_svg]:w-[20px]
-  [&_svg]:h-[20px]
-`;
+import SocialLinkIcon from "../socialLinkIcon";
 
 export default function ChainInfo() {
   return (
@@ -27,21 +21,21 @@ export default function ChainInfo() {
         </span>
       </div>
       <div className="flex gap-[12px]">
-        <SocialLinkIconWrapper href="" target="_blank">
+        <SocialLinkIcon href="">
           <LinkWebsite />
-        </SocialLinkIconWrapper>
-        <SocialLinkIconWrapper href="" target="_blank">
+        </SocialLinkIcon>
+        <SocialLinkIcon href="">
           <LinkTwitter />
-        </SocialLinkIconWrapper>
-        <SocialLinkIconWrapper href="" target="_blank">
+        </SocialLinkIcon>
+        <SocialLinkIcon href="">
           <LinkTelegram />
-        </SocialLinkIconWrapper>
-        <SocialLinkIconWrapper href="" target="_blank">
+        </SocialLinkIcon>
+        <SocialLinkIcon href="">
           <LinkDiscord />
-        </SocialLinkIconWrapper>
-        <SocialLinkIconWrapper href="" target="_blank">
+        </SocialLinkIcon>
+        <SocialLinkIcon href="">
           <LinkGithub />
-        </SocialLinkIconWrapper>
+        </SocialLinkIcon>
       </div>
     </>
   );
