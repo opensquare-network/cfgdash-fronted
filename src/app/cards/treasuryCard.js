@@ -26,7 +26,10 @@ function DetailRow({ className, symbol, tokenName, value, fiatValue }) {
 
 export default function TreasuryCard() {
   return (
-    <CardContainer className="w-[400px]" icon={<SystemTreasury />}>
+    <CardContainer
+      className="w-[400px] max-sm:w-full"
+      icon={<SystemTreasury />}
+    >
       <ValueSummary
         className="mb-[24px]"
         title="Funds available in treasury"

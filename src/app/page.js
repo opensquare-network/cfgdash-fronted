@@ -10,15 +10,15 @@ export const dynamic = "force-dynamic";
 export default async function Home() {
   return (
     <div className="flex flex-col grow gap-[16px]">
-      <div className="flex gap-[16px]">
+      <div className="flex max-sm:flex-col gap-[16px]">
         <TransactionCard />
-        <div className="grid grid-cols-3 gap-[16px] grow">
+        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-[16px] grow">
           <HolderCard />
           <RewardCard />
           <GovernanceCard />
         </div>
       </div>
-      <div className="flex gap-[16px]">
+      <div className="flex max-sm:flex-col gap-[16px]">
         <TreasuryCard />
         <ProposalCard />
       </div>

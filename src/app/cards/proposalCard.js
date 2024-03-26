@@ -3,7 +3,9 @@ import ValueSummary from "@/components/card/valueSummary";
 import { SystemProposal } from "@/components/icons";
 import tw from "tailwind-styled-components";
 
-const Table = tw.table``;
+const Table = tw.table`
+  w-full
+`;
 
 const THead = tw.thead`
   [&_td]:bg-fillBgTableHeader
@@ -11,10 +13,11 @@ const THead = tw.thead`
   [&_td]:text-textPrimary
 `;
 
-const TBody = tw.tbody``;
+const TBody = tw.tbody`
+  [&_td]:text14Regular
+`;
 
 const TR = tw.tr`
-  [&_td]:text14Regular
 `;
 
 const TD = tw.td`
@@ -37,9 +40,11 @@ function ProposalList() {
   return (
     <Table>
       <THead>
-        <TD>Proposal</TD>
-        <TD></TD>
-        <TD className="text-right">Spend</TD>
+        <TR>
+          <TD className="min-w-[230px]">Proposal</TD>
+          <TD></TD>
+          <TD className="text-right">Spend</TD>
+        </TR>
       </THead>
       <TBody>
         <TR>
@@ -66,9 +71,14 @@ function ProposalList() {
 
 export default function ProposalCard() {
   return (
-    <CardContainer className="w-[400px] grow" icon={<SystemProposal />}>
+    <CardContainer
+      className="grow max-sm:w-screen overflow-x-scroll scrollbar-hidden"
+      icon={<SystemProposal />}
+    >
       <ValueSummary className="mb-[24px]" title="Treasury" value="Proposals" />
-      <ProposalList />
+      <div className="flex flex-col grow overflow-x-scroll scrollbar-hidden">
+        <ProposalList />
+      </div>
     </CardContainer>
   );
 }

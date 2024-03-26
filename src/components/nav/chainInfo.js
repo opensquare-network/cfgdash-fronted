@@ -7,12 +7,14 @@ import {
   LogoSymbolCentrifuge,
 } from "../icons";
 import SocialLinkIcon from "../socialLinkIcon";
+import ThemeToggle from "./themeToggle";
 
 export default function ChainInfo() {
   return (
     <>
-      <div>
+      <div className="flex justify-between">
         <LogoSymbolCentrifuge className="w-[64px] h-[64px]" />
+        <ThemeToggle className="hidden max-sm:flex" />
       </div>
       <div className="flex flex-col gap-[8px]">
         <span className="text40Semibold text-textPrimary">Centrifuge</span>

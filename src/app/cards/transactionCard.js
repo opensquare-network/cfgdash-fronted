@@ -4,7 +4,10 @@ import { SystemTransaction } from "@/components/icons";
 
 export default function TransactionCard() {
   return (
-    <CardContainer className="w-[400px]" icon={<SystemTransaction />}>
+    <CardContainer
+      className="w-[400px] max-sm:w-full"
+      icon={<SystemTransaction />}
+    >
       <ValueSummary
         className="mb-[24px]"
         title="Transaction"

@@ -7,6 +7,8 @@ const TopPanel = tw.div`
   flex
   justify-around
   py-[48px]
+  max-sm:py-[32px]
+  max-sm:w-full
   bg-fillBgPrimary
   border-b
   border-strokeBorder
@@ -17,6 +19,7 @@ const Main = tw.div`
   justify-around
   grow
   py-[32px]
+  bg-fillBgPrimary
 `;
 
 const Content = tw.div`
