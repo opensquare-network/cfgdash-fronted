@@ -7,6 +7,8 @@ import { Inter, Montserrat } from "next/font/google";
 import { cn } from "@/utils";
 import { SITE_URL } from "@/utils/consts";
 import AppProgressBar from "@/components/appProgressBar";
+import { getThemeMode } from "@/utils/server/cookies";
+import Nav from "@/components/nav";
 
 export const dynamic = "force-dynamic";
 
@@ -41,6 +43,8 @@ export function generateMetadata() {
 }
 
 export default async function RootLayout({ children }) {
+  const themeMode = getThemeMode();
+
   return (
     <html
       lang="en"
@@ -51,7 +55,9 @@ export default async function RootLayout({ children }) {
         <AppProgressBar>
           <StoreProvider>
             <StyledComponentsRegistry>
-              <BaseLayout>{children}</BaseLayout>
+              <BaseLayout nav={<Nav />} themeMode={themeMode}>
+                {children}
+              </BaseLayout>
             </StyledComponentsRegistry>
           </StoreProvider>
         </AppProgressBar>

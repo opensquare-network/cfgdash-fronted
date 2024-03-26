@@ -8,7 +8,3 @@ body {
 
   @apply text-textPrimary;
 }
-
-hr {
-  @apply border-neutral300;
-}

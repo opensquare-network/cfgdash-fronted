@@ -23,7 +23,8 @@
     "react-use": "^17.5.0",
     "styled-components": "^5.3.9",
     "tailwind-merge": "^2.2.2",
-    "tailwind-styled-components": "^2.2.0"
+    "tailwind-styled-components": "^2.2.0",
+    "usehooks-ts": "^3.0.2"
   },
   "devDependencies": {
     "@osn/eslint-config": "^1.0.1",
