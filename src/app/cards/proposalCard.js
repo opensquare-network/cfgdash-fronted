@@ -13,7 +13,9 @@ const THead = tw.thead`
 
 const TBody = tw.tbody``;
 
-const TR = tw.tr``;
+const TR = tw.tr`
+  [&_td]:text14Regular
+`;
 
 const TD = tw.td`
   py-[12px]
@@ -21,6 +23,15 @@ const TD = tw.td`
   border-b
   border-strokeDivider
 `;
+
+function Balance({ value, symbol }) {
+  return (
+    <div className="inline-flex gap-[4px] text14Semibold">
+      <span className="text-textPrimary">{value}</span>
+      <span className="text-textSecondary">{symbol}</span>
+    </div>
+  );
+}
 
 function ProposalList() {
   return (
@@ -34,7 +45,9 @@ function ProposalList() {
         <TR>
           <TD>Error sed quia</TD>
           <TD></TD>
-          <TD className="text-right">100,000 CFG</TD>
+          <TD className="text-right">
+            <Balance value="100,000" symbol="CFG" />
+          </TD>
         </TR>
         <TR>
           <TD>
@@ -42,7 +55,9 @@ function ProposalList() {
             long
           </TD>
           <TD></TD>
-          <TD className="text-right">100,000 CFG</TD>
+          <TD className="text-right">
+            <Balance value="100,000" symbol="CFG" />
+          </TD>
         </TR>
       </TBody>
     </Table>
