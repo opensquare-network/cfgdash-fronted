@@ -5,7 +5,7 @@ import { SystemGovernance } from "@/components/icons";
 
 export default function GovernanceCard() {
   return (
-    <CardContainer className="grow" icon={<SystemGovernance />}>
+    <CardContainer icon={<SystemGovernance />}>
       <TokenSummary
         className="mb-[24px]"
         title="Tokens used in governance"

@@ -5,7 +5,7 @@ import { SystemReward } from "@/components/icons";
 
 export default function RewardCard() {
   return (
-    <CardContainer className="grow" icon={<SystemReward />}>
+    <CardContainer icon={<SystemReward />}>
       <TokenSummary
         className="mb-[24px]"
         title="Block rewards"

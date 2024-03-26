@@ -5,7 +5,7 @@ import { SystemHolder } from "@/components/icons";
 
 export default function HolderCard() {
   return (
-    <CardContainer className="grow" icon={<SystemHolder />}>
+    <CardContainer icon={<SystemHolder />}>
       <ValueSummary
         className="mb-[24px]"
         title="Total token holders"
