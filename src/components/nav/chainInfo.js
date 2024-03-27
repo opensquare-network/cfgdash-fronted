@@ -1,12 +1,5 @@
-import {
-  LinkDiscord,
-  LinkGithub,
-  LinkTelegram,
-  LinkTwitter,
-  LinkWebsite,
-  LogoSymbolCentrifuge,
-} from "../icons";
-import SocialLinkIcon from "../socialLinkIcon";
+import { LinkWebsite, LogoSymbolCentrifuge } from "../icons";
+import SocialIconLink, { SocialIconLinkWrapper } from "../socialIcon";
 import ThemeToggle from "./themeToggle";
 
 export default function ChainInfo() {
@@ -23,21 +16,13 @@ export default function ChainInfo() {
         </span>
       </div>
       <div className="flex gap-[12px]">
-        <SocialLinkIcon href="">
+        <SocialIconLinkWrapper href="https://centrifuge.io/">
           <LinkWebsite />
-        </SocialLinkIcon>
-        <SocialLinkIcon href="">
-          <LinkTwitter />
-        </SocialLinkIcon>
-        <SocialLinkIcon href="">
-          <LinkTelegram />
-        </SocialLinkIcon>
-        <SocialLinkIcon href="">
-          <LinkDiscord />
-        </SocialLinkIcon>
-        <SocialLinkIcon href="">
-          <LinkGithub />
-        </SocialLinkIcon>
+        </SocialIconLinkWrapper>
+        <SocialIconLink href="https://twitter.com/centrifuge" />
+        <SocialIconLink href="https://t.me/centrifuge_chat" />
+        <SocialIconLink href="https://discord.com/invite/yEzyUq5gxF" />
+        <SocialIconLink href="https://github.com/centrifuge/" />
       </div>
     </>
   );

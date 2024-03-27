@@ -17,11 +17,15 @@ import SystemProposalDark from "@/imgs/icons/systemProposalDark.svg";
 import SystemProposalLight from "@/imgs/icons/systemProposalLight.svg";
 import ThemeDark from "@/imgs/icons/themeDark.svg";
 import ThemeLight from "@/imgs/icons/themeLight.svg";
+import LinkDefault from "@/imgs/icons/linkDefault.svg";
 import LinkWebsite from "@/imgs/icons/linkWebsite.svg";
-import LinkDiscord from "@/imgs/icons/linkDiscord.svg";
-import LinkTelegram from "@/imgs/icons/linkTelegram.svg";
-import LinkTwitter from "@/imgs/icons/linkTwitter.svg";
+import LinkSubsquare from "@/imgs/icons/linkSubsquare.svg";
+import LinkPolkassembly from "@/imgs/icons/linkPolkassembly.svg";
+import LinkSubscan from "@/imgs/icons/linkSubscan.svg";
 import LinkGithub from "@/imgs/icons/linkGithub.svg";
+import LinkTwitter from "@/imgs/icons/linkTwitter.svg";
+import LinkTelegram from "@/imgs/icons/linkTelegram.svg";
+import LinkDiscord from "@/imgs/icons/linkDiscord.svg";
 import LinkCoingecko from "@/imgs/icons/linkCoingecko.svg";
 import LinkCoinmarketcap from "@/imgs/icons/linkCoinmarketcap.svg";
 import Ring from "@/imgs/icons/ring.svg";
@@ -114,11 +118,15 @@ export {
   SystemTreasury,
   SystemProposal,
   Theme,
+  LinkDefault,
   LinkWebsite,
+  LinkSubsquare,
+  LinkPolkassembly,
+  LinkSubscan,
+  LinkGithub,
+  LinkTwitter,
   LinkDiscord,
   LinkTelegram,
-  LinkTwitter,
-  LinkGithub,
   LinkCoingecko,
   LinkCoinmarketcap,
   Ring,

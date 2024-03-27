@@ -8,7 +8,7 @@ const dark = {
   fillChartSecondary: "#81a3febf",
   fillChartTertiary: "#81a3fe80",
   fillTabSelected: "#81a3fe1a",
-  strokeBorder: "#202020",
+  strokeBorder: "#161617",
   strokeChart: "#81a3fe",
   strokeDivider: "#202020",
   textHighlight: "#81a3fe",

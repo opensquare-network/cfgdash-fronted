@@ -1,7 +1,13 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import tw from "tailwind-styled-components";
 import CardContainer from "@/components/card/cardContainer";
 import ValueSummary from "@/components/card/valueSummary";
 import { SystemProposal } from "@/components/icons";
-import tw from "tailwind-styled-components";
+import BigNumber from "bignumber.js";
+import { Link } from "../styled";
+import SocialIconLink from "../socialIcon";
 
 const Table = tw.table`
   w-full
@@ -36,48 +42,94 @@ function Balance({ value, symbol }) {
   );
 }
 
-function ProposalList() {
+function ProposalList({ proposals }) {
   return (
     <Table>
       <THead>
         <TR>
           <TD className="min-w-[230px]">Proposal</TD>
-          <TD></TD>
+          <TD className="min-w-[80px]"></TD>
           <TD className="text-right">Spend</TD>
         </TR>
       </THead>
       <TBody>
-        <TR>
-          <TD>Error sed quia</TD>
-          <TD></TD>
-          <TD className="text-right">
-            <Balance value="100,000" symbol="CFG" />
-          </TD>
-        </TR>
-        <TR>
-          <TD>
-            Dolorem non iusto ipsum id placeat illum enim corrupti consequatur
-            long
-          </TD>
-          <TD></TD>
-          <TD className="text-right">
-            <Balance value="100,000" symbol="CFG" />
-          </TD>
-        </TR>
+        {proposals?.map((item, index) => {
+          const value = new BigNumber(item.value)
+            .div(Math.pow(10, 18))
+            .toFixed();
+          return (
+            <TR key={index}>
+              <TD>{item.description}</TD>
+              <TD>
+                <div className="flex w-full justify-end gap-[8px]">
+                  {(item.links || []).map((link, index) => (
+                    <SocialIconLink key={index} href={link.link} />
+                  ))}
+                </div>
+              </TD>
+              <TD className="text-right">
+                <Balance value={value} symbol="CFG" />
+              </TD>
+            </TR>
+          );
+        })}
       </TBody>
     </Table>
   );
 }
 
+function useProposals() {
+  const [proposals, setProposals] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetch("https://centrifuge-api.dotreasury.com/proposals?page=0&page_size=20")
+      .then(async (res) => {
+        const data = await res.json();
+        setProposals(data);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
+
+  return {
+    proposals,
+    isLoading,
+  };
+}
+
 export default function ProposalCard() {
+  const { proposals, isLoading } = useProposals();
+
+  let content = null;
+  if (isLoading) {
+    content = <div className="flex justify-center m-[24px]">Loading...</div>;
+  } else {
+    content = (
+      <div className="flex grow overflow-x-scroll scrollbar-hidden mb-[16px]">
+        <ProposalList
+          proposals={proposals?.items || []}
+          isLoading={isLoading}
+        />
+      </div>
+    );
+  }
+
   return (
-    <CardContainer
-      className="grow max-sm:w-screen overflow-x-scroll scrollbar-hidden"
-      icon={<SystemProposal />}
-    >
+    <CardContainer className="grow max-sm:w-screen" icon={<SystemProposal />}>
       <ValueSummary className="mb-[24px]" title="Treasury" value="Proposals" />
-      <div className="flex flex-col grow overflow-x-scroll scrollbar-hidden">
-        <ProposalList />
+      <div className="flex flex-col">
+        {content}
+        <div className="mx-[22px]">
+          <Link
+            href="https://centrifuge.dotreasury.com/#/proposals"
+            target="_blank"
+          >
+            View All
+          </Link>
+        </div>
       </div>
     </CardContainer>
   );

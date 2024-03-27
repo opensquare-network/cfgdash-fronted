@@ -1,8 +1,8 @@
 import { cn } from "@/utils";
 import CardContainer from "../card/cardContainer";
 import ValueSummary from "../card/valueSummary";
-import { LinkCoingecko, LinkCoinmarketcap, SystemPrice } from "../icons";
-import SocialLinkIcon from "../socialLinkIcon";
+import { SystemPrice } from "../icons";
+import SocialIconLink from "../socialIcon";
 
 function DateItem({ selected, onClick, children }) {
   return (
@@ -24,12 +24,8 @@ function Toolbar() {
   return (
     <div className="flex justify-between items-center">
       <div className="flex gap-[12px]">
-        <SocialLinkIcon href="">
-          <LinkCoinmarketcap />
-        </SocialLinkIcon>
-        <SocialLinkIcon href="">
-          <LinkCoingecko />
-        </SocialLinkIcon>
+        <SocialIconLink href="https://coinmarketcap.com/currencies/centrifuge/" />
+        <SocialIconLink href="https://www.coingecko.com/en/coins/centrifuge" />
       </div>
 
       <div className="flex gap-[8px]">

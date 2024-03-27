@@ -7,4 +7,4 @@ const fmt = {
 };
 
 export const formatBN = (balance, decimalPlaces = 0) =>
-  new BigNumber(balance).dp(decimalPlaces).toFormat(fmt);
+  new BigNumber(balance).dp(decimalPlaces, BigNumber.ROUND_DOWN).toFormat(fmt);
