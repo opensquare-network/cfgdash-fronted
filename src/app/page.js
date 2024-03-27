@@ -5,9 +5,7 @@ import GovernanceCard from "./cards/governanceCard";
 import TreasuryCard from "./cards/treasuryCard";
 import ProposalCard from "./cards/proposalCard";
 
-export const dynamic = "force-dynamic";
-
-export default async function Home() {
+export default function Home() {
   return (
     <div className="flex flex-col grow gap-[16px]">
       <div className="flex max-sm:flex-col gap-[16px]">

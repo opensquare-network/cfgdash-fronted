@@ -9,6 +9,7 @@ import { SITE_URL } from "@/utils/consts";
 import AppProgressBar from "@/components/appProgressBar";
 import { getThemeMode } from "@/utils/server/cookies";
 import Nav from "@/components/nav";
+import { BasicDataProvider } from "@/context/basicData";
 
 export const dynamic = "force-dynamic";
 
@@ -55,9 +56,11 @@ export default async function RootLayout({ children }) {
         <AppProgressBar>
           <StoreProvider>
             <StyledComponentsRegistry>
-              <BaseLayout nav={<Nav />} themeMode={themeMode}>
-                {children}
-              </BaseLayout>
+              <BasicDataProvider>
+                <BaseLayout nav={<Nav />} themeMode={themeMode}>
+                  {children}
+                </BaseLayout>
+              </BasicDataProvider>
             </StyledComponentsRegistry>
           </StoreProvider>
         </AppProgressBar>

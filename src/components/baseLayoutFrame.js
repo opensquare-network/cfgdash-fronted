@@ -19,7 +19,7 @@ const Main = tw.div`
   justify-around
   grow
   py-[32px]
-  bg-fillBgPrimary
+  bg-fillBgSecondary
 `;
 
 const Content = tw.div`
