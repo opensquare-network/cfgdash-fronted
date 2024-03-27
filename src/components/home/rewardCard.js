@@ -19,8 +19,8 @@ export default function RewardCard() {
         value={formatBN(total)}
       />
       <div className="flex flex-col">
-        <DetailRow title="Collator" amount={formatBN(collator)} symbol="CFG" />
-        <DetailRow title="Treasury" amount={formatBN(treasury)} symbol="CFG" />
+        <DetailRow title="Collator" amount={formatBN(collator)} unit="CFG" />
+        <DetailRow title="Treasury" amount={formatBN(treasury)} unit="CFG" />
       </div>
     </CardContainer>
   );

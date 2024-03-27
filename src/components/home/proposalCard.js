@@ -9,6 +9,7 @@ import BigNumber from "bignumber.js";
 import { Link } from "../styled";
 import SocialIconLink from "../socialIcon";
 import { formatBN } from "@/utils/balance";
+import { Amount } from "../card/detailRow";
 
 const Table = tw.table`
   w-full
@@ -33,15 +34,6 @@ const TD = tw.td`
   border-b
   border-strokeDivider
 `;
-
-function Balance({ value, symbol }) {
-  return (
-    <div className="inline-flex gap-[4px] text14Semibold">
-      <span className="text-textPrimary">{value}</span>
-      <span className="text-textSecondary">{symbol}</span>
-    </div>
-  );
-}
 
 function ProposalList({ proposals }) {
   return (
@@ -83,7 +75,7 @@ function ProposalList({ proposals }) {
               </TD>
               <TD className="text-right">
                 <div className="inline-flex flex-col items-end gap-[4px]">
-                  <Balance value={value} symbol="CFG" />
+                  <Amount amount={formatBN(value, 3)} unit="CFG" />
                   <span className="text12Regular text-textSecondary">
                     ≈${formatBN(fiatValue, 3)}
                   </span>

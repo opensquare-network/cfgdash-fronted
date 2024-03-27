@@ -12,8 +12,8 @@ export default function GovernanceCard() {
         value="3,000,000"
       />
       <div className="flex flex-col">
-        <DetailRow title="On-chain" amount="2,000,000" symbol="CFG" />
-        <DetailRow title="Off-chain" amount="1,000,000" symbol="CFG" />
+        <DetailRow title="On-chain" amount="2,000,000" unit="CFG" />
+        <DetailRow title="Off-chain" amount="1,000,000" unit="CFG" />
       </div>
     </CardContainer>
   );

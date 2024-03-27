@@ -24,13 +24,9 @@ export default function Supply() {
         <DetailRow
           title="Native CFG"
           amount={formatBN(new BigNumber(total).minus(wrapped).toFixed())}
-          symbol="CFG"
+          unit="CFG"
         />
-        <DetailRow
-          title="Wrapped CFG"
-          amount={formatBN(wrapped)}
-          symbol="CFG"
-        />
+        <DetailRow title="Wrapped CFG" amount={formatBN(wrapped)} unit="CFG" />
       </div>
     </>
   );
