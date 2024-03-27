@@ -8,7 +8,6 @@ const TopPanel = tw.div`
   justify-around
   py-[48px]
   max-sm:py-[32px]
-  max-sm:w-full
   bg-fillBgPrimary
   border-b
   border-strokeBorder
@@ -24,7 +23,6 @@ const Main = tw.div`
 
 const Content = tw.div`
   flex
-  h-full
   w-full
   max-w-[1280px]
 `;
@@ -32,7 +30,7 @@ const Content = tw.div`
 export default function BaseLayout({ nav, themeMode, children }) {
   return (
     <ThemeModeProvider defaultThemeMode={themeMode}>
-      <div className="flex flex-col w-screen h-screen">
+      <div className="flex flex-col w-screen">
         <TopPanel>
           <Content>{nav}</Content>
         </TopPanel>

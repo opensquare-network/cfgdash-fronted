@@ -12,6 +12,15 @@ import { formatBN } from "@/utils/balance";
 function BarChart({ data }) {
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        display: false,
+      },
+      y: {
+        display: false,
+      },
+    },
     plugins: {
       legend: {
         display: false,
@@ -28,27 +37,29 @@ export default function TransactionCard() {
 
   return (
     <CardContainer
-      className="w-[400px] max-sm:w-full"
+      className="w-[400px] sm:min-w-[400px] max-sm:w-full"
       icon={<SystemTransaction />}
     >
       <ValueSummary
         title="Transaction"
         value={formatBN(signedExtrinsicCount)}
       />
-      <BarChart
-        data={{
-          labels: dailyExtrinsics.map((extrinsic) =>
-            extrinsic.startTime.toString()
-          ),
-          datasets: [
-            {
-              label: "Extrinsics",
-              data: dailyExtrinsics.map((extrinsic) => extrinsic.count),
-              backgroundColor: "rgba(129, 163, 254, 1)",
-            },
-          ],
-        }}
-      />
+      <div className="relative h-[92px]">
+        <BarChart
+          data={{
+            labels: dailyExtrinsics.map((extrinsic) =>
+              extrinsic.startTime.toString()
+            ),
+            datasets: [
+              {
+                label: "Extrinsics",
+                data: dailyExtrinsics.map((extrinsic) => extrinsic.count),
+                backgroundColor: "rgba(129, 163, 254, 1)",
+              },
+            ],
+          }}
+        />
+      </div>
     </CardContainer>
   );
 }
