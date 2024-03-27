@@ -62,7 +62,7 @@ export default function TreasuryCard() {
       <div className="flex flex-col mb-[16px]">
         <DetailRow
           className="[&_svg_path]:fill-fillChartPrimary"
-          unit="CFG"
+          symbol="CFG"
           tokenName="Centrifuge"
           value={formatBN(tokens.cfg?.value || 0, 3)}
           fiatValue={formatBN(tokens.cfg?.fiatValue || 0, 3)}
