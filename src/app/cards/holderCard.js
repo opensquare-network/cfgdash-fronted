@@ -8,8 +8,8 @@ import { useBasicData } from "@/context/basicData";
 import { formatBN } from "@/utils/balance";
 
 export default function HolderCard() {
-  const { data } = useBasicData();
-  const { all = 0, whales = 0, dolphins = 0 } = data?.holders || {};
+  const { holders } = useBasicData();
+  const { all = 0, whales = 0, dolphins = 0 } = holders;
 
   return (
     <CardContainer icon={<SystemHolder />}>

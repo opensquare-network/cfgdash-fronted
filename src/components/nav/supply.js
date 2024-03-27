@@ -7,15 +7,15 @@ import { formatBN } from "@/utils/balance";
 import BigNumber from "bignumber.js";
 
 function TotalSupply() {
-  const { data } = useBasicData();
-  const { total = 0 } = data?.supply || {};
+  const { supply } = useBasicData();
+  const { total = 0 } = supply;
 
   return <TokenSummary title="Total supply" value={formatBN(total)} />;
 }
 
 export default function Supply() {
-  const { data } = useBasicData();
-  const { total = 0, wrapped = 0 } = data?.supply || {};
+  const { supply } = useBasicData();
+  const { total = 0, wrapped = 0 } = supply;
 
   return (
     <>

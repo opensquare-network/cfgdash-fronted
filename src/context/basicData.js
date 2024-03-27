@@ -1,42 +1,14 @@
 "use client";
 
 import React from "react";
-import { gql } from "@apollo/client";
-import { useApiQuery } from "@/apollo";
-
-const gqlQuery = gql`
-  query MyQuery {
-    basicData {
-      holders {
-        all
-        whales
-        dolphins
-      }
-      rewards {
-        collator
-        treasury
-      }
-      supply {
-        total
-        wrapped
-      }
-      treasuryTokens {
-        price
-        token
-        value
-      }
-    }
-  }
-`;
 
 const BasicDataContext = React.createContext();
 
 export default BasicDataContext;
 
-export const BasicDataProvider = ({ children }) => {
-  const { data, loading } = useApiQuery(gqlQuery);
+export const BasicDataProvider = ({ data, children }) => {
   return (
-    <BasicDataContext.Provider value={{ data: data?.basicData, loading }}>
+    <BasicDataContext.Provider value={data}>
       {children}
     </BasicDataContext.Provider>
   );

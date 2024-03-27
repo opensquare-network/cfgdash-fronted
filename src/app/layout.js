@@ -10,6 +10,7 @@ import AppProgressBar from "@/components/appProgressBar";
 import { getThemeMode } from "@/utils/server/cookies";
 import Nav from "@/components/nav";
 import { BasicDataProvider } from "@/context/basicData";
+import queryBasicData from "@/query/queryBasicData";
 
 export const dynamic = "force-dynamic";
 
@@ -45,6 +46,7 @@ export function generateMetadata() {
 
 export default async function RootLayout({ children }) {
   const themeMode = getThemeMode();
+  const data = await queryBasicData();
 
   return (
     <html
@@ -56,7 +58,7 @@ export default async function RootLayout({ children }) {
         <AppProgressBar>
           <StoreProvider>
             <StyledComponentsRegistry>
-              <BasicDataProvider>
+              <BasicDataProvider data={data}>
                 <BaseLayout nav={<Nav />} themeMode={themeMode}>
                   {children}
                 </BaseLayout>

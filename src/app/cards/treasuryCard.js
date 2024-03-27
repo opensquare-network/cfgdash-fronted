@@ -35,8 +35,7 @@ function DetailRow({ className, symbol, tokenName, value, fiatValue }) {
 }
 
 export default function TreasuryCard() {
-  const { data } = useBasicData();
-  const { treasuryTokens = [] } = data || {};
+  const { treasuryTokens = [] } = useBasicData();
 
   const tokens = treasuryTokens.reduce((acc, { token, value, price }) => {
     const fiatValue = new BigNumber(price).times(value).toFixed();

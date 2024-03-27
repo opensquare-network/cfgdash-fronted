@@ -9,8 +9,8 @@ import { formatBN } from "@/utils/balance";
 import BigNumber from "bignumber.js";
 
 export default function RewardCard() {
-  const { data } = useBasicData();
-  const { collator = 0, treasury = 0 } = data?.rewards || {};
+  const { rewards } = useBasicData();
+  const { collator = 0, treasury = 0 } = rewards;
 
   return (
     <CardContainer icon={<SystemReward />}>
