@@ -26,7 +26,7 @@ function DetailRow({ className, symbol, tokenName, value, fiatValue }) {
       </div>
       <div className="flex flex-col gap-[4px] items-end">
         <span className="text14Semibold text-textPrimary">{value}</span>
-        <span className="text12Regular text-textSecondary">${fiatValue}</span>
+        <span className="text12Regular text-textSecondary">≈${fiatValue}</span>
       </div>
     </div>
   );

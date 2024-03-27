@@ -8,6 +8,7 @@ import { SystemProposal } from "@/components/icons";
 import BigNumber from "bignumber.js";
 import { Link } from "../styled";
 import SocialIconLink from "../socialIcon";
+import { formatBN } from "@/utils/balance";
 
 const Table = tw.table`
   w-full
@@ -47,6 +48,7 @@ function ProposalList({ proposals }) {
     <Table>
       <THead>
         <TR>
+          <TD className="min-w-[60px]">Index</TD>
           <TD className="min-w-[230px]">Proposal</TD>
           <TD className="min-w-[80px]"></TD>
           <TD className="text-right">Spend</TD>
@@ -57,8 +59,20 @@ function ProposalList({ proposals }) {
           const value = new BigNumber(item.value)
             .div(Math.pow(10, 18))
             .toFixed();
+          const fiatValue = new BigNumber(item.symbolPrice)
+            .plus(value)
+            .toFixed();
           return (
             <TR key={index}>
+              <TD>
+                <Link
+                  className="text14Regular"
+                  href={`https://centrifuge.subsquare.io/treasury/proposals/${item.proposalIndex}`}
+                  target="_blank"
+                >
+                  #{item.proposalIndex}
+                </Link>
+              </TD>
               <TD>{item.description}</TD>
               <TD>
                 <div className="flex w-full justify-end gap-[8px]">
@@ -68,7 +82,12 @@ function ProposalList({ proposals }) {
                 </div>
               </TD>
               <TD className="text-right">
-                <Balance value={value} symbol="CFG" />
+                <div className="inline-flex flex-col items-end gap-[4px]">
+                  <Balance value={value} symbol="CFG" />
+                  <span className="text12Regular text-textSecondary">
+                    ≈${formatBN(fiatValue, 3)}
+                  </span>
+                </div>
               </TD>
             </TR>
           );
