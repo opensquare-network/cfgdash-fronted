@@ -9,6 +9,7 @@ const BASIC_DATA_QUERY = gql`
         dolphins
       }
       rewards {
+        total
         collator
         treasury
       }
@@ -21,6 +22,7 @@ const BASIC_DATA_QUERY = gql`
         token
         value
       }
+      signedExtrinsicCount
     }
   }
 `;

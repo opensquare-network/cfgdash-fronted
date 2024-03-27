@@ -11,6 +11,8 @@ import { getThemeMode } from "@/utils/server/cookies";
 import Nav from "@/components/nav";
 import { BasicDataProvider } from "@/context/basicData";
 import queryBasicData from "@/query/queryBasicData";
+import queryDailyExtrinsics from "@/query/queryDailyExtrinsics";
+import { DailyExtrinsicsProvider } from "@/context/dailyExtrinsics";
 
 export const dynamic = "force-dynamic";
 
@@ -46,7 +48,8 @@ export function generateMetadata() {
 
 export default async function RootLayout({ children }) {
   const themeMode = getThemeMode();
-  const data = await queryBasicData();
+  const basicData = await queryBasicData();
+  const dailyExtrinsics = await queryDailyExtrinsics();
 
   return (
     <html
@@ -58,10 +61,12 @@ export default async function RootLayout({ children }) {
         <AppProgressBar>
           <StoreProvider>
             <StyledComponentsRegistry>
-              <BasicDataProvider data={data}>
-                <BaseLayout nav={<Nav />} themeMode={themeMode}>
-                  {children}
-                </BaseLayout>
+              <BasicDataProvider data={basicData}>
+                <DailyExtrinsicsProvider data={dailyExtrinsics}>
+                  <BaseLayout nav={<Nav />} themeMode={themeMode}>
+                    {children}
+                  </BaseLayout>
+                </DailyExtrinsicsProvider>
               </BasicDataProvider>
             </StyledComponentsRegistry>
           </StoreProvider>

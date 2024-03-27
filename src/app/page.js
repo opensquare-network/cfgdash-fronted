@@ -1,9 +1,9 @@
-import TransactionCard from "./cards/transactionCard";
-import HolderCard from "./cards/holderCard";
-import RewardCard from "./cards/rewardCard";
-import GovernanceCard from "./cards/governanceCard";
-import TreasuryCard from "./cards/treasuryCard";
-import ProposalCard from "./cards/proposalCard";
+import TransactionCard from "@/components/home/transactionCard";
+import HolderCard from "@/components/home/holderCard";
+import RewardCard from "@/components/home/rewardCard";
+import GovernanceCard from "@/components/home/governanceCard";
+import TreasuryCard from "@/components/home/treasuryCard";
+import ProposalCard from "@/components/home/proposalCard";
 
 export default function Home() {
   return (

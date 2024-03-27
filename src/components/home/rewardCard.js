@@ -6,18 +6,17 @@ import TokenSummary from "@/components/card/tokenSummary";
 import { SystemReward } from "@/components/icons";
 import { useBasicData } from "@/context/basicData";
 import { formatBN } from "@/utils/balance";
-import BigNumber from "bignumber.js";
 
 export default function RewardCard() {
   const { rewards } = useBasicData();
-  const { collator = 0, treasury = 0 } = rewards;
+  const { total = 0, collator = 0, treasury = 0 } = rewards;
 
   return (
     <CardContainer icon={<SystemReward />}>
       <TokenSummary
         className="mb-[24px]"
         title="Block rewards"
-        value={formatBN(new BigNumber(collator).plus(treasury).toFixed())}
+        value={formatBN(total)}
       />
       <div className="flex flex-col">
         <DetailRow title="Collator" amount={formatBN(collator)} symbol="CFG" />
