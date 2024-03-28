@@ -3,7 +3,7 @@
 import { cn } from "@/utils";
 import CardContainer from "../../card/cardContainer";
 import ValueSummary from "../../card/valueSummary";
-import { SystemLoadingAnimation, SystemPrice } from "../../icons";
+import { SystemLoading, SystemPrice } from "../../icons";
 import SocialIconLink from "../../socialIcon";
 import { find, noop } from "lodash-es";
 import PriceCardContentChart from "./chart";
@@ -67,7 +67,7 @@ export default function PriceCardContent({
               "bg-fillCard"
             )}
           >
-            <SystemLoadingAnimation />
+            <SystemLoading />
           </div>
         )}
 
