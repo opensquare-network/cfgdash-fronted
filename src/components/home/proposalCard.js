@@ -71,7 +71,7 @@ function ProposalRow({ proposal }) {
 function ProposalLoading() {
   return (
     <TR>
-      <TD colSpan={4}>
+      <TD colSpan={4} className="border-none">
         <div className="flex justify-center my-[48px]">
           <SystemLoading />
         </div>
