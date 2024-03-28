@@ -72,7 +72,7 @@ function ProposalLoading() {
   return (
     <TR>
       <TD colSpan={4}>
-        <div className="flex justify-center my-[64px]">
+        <div className="flex justify-center my-[48px]">
           <SystemLoading />
         </div>
       </TD>
@@ -80,17 +80,15 @@ function ProposalLoading() {
   );
 }
 
-function ProposalList() {
-  const { proposals, isLoading } = useProposals();
-
+function ProposalList({ proposals, isLoading }) {
   return (
     <Table>
       <THead>
         <TR>
-          <TD className="min-w-[60px]">Index</TD>
-          <TD className="min-w-[230px]">Proposal</TD>
-          <TD className="min-w-[80px]"></TD>
-          <TD className="text-right">Spend</TD>
+          <TD className="w-[60px] min-w-[60px]">Index</TD>
+          <TD className="min-w-[360px]">Proposal</TD>
+          <TD className="w-[120px] min-w-[120px]"></TD>
+          <TD className="text-right w-[160px] min-w-[160px]">Spend</TD>
         </TR>
       </THead>
       <TBody>
@@ -108,7 +106,7 @@ function ProposalList() {
 
 function useProposals() {
   const [proposals, setProposals] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
@@ -129,24 +127,28 @@ function useProposals() {
 }
 
 export default function ProposalCard() {
+  const { proposals, isLoading } = useProposals();
+
   return (
     <CardContainer
-      className="grow max-sm:w-screen overflow-x-scroll scrollbar-hidden"
+      className="min-h-[382px] grow max-sm:w-screen overflow-x-scroll scrollbar-hidden"
       icon={<SystemProposal />}
     >
       <ValueSummary className="mb-[24px]" title="Treasury" value="Proposals" />
       <div className="flex flex-col overflow-x-scroll scrollbar-hidden">
         <div className="flex grow overflow-x-scroll scrollbar-hidden mb-[16px]">
-          <ProposalList />
+          <ProposalList proposals={proposals} isLoading={isLoading} />
         </div>
-        <div className="mx-[22px]">
-          <Link
-            href="https://centrifuge.dotreasury.com/#/proposals"
-            target="_blank"
-          >
-            View All
-          </Link>
-        </div>
+        {!isLoading && (
+          <div className="mx-[22px]">
+            <Link
+              href="https://centrifuge.dotreasury.com/#/proposals"
+              target="_blank"
+            >
+              View All
+            </Link>
+          </div>
+        )}
       </div>
     </CardContainer>
   );
