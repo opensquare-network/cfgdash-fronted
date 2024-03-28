@@ -1,10 +1,10 @@
 "use client";
 
 import { cn } from "@/utils";
-import CardContainer from "../card/cardContainer";
-import ValueSummary from "../card/valueSummary";
-import { SystemPrice } from "../icons";
-import SocialIconLink from "../socialIcon";
+import CardContainer from "../../card/cardContainer";
+import ValueSummary from "../../card/valueSummary";
+import { SystemPrice } from "../../icons";
+import SocialIconLink from "../../socialIcon";
 import { useState } from "react";
 
 function DateItem({ selected, onClick, children }) {
@@ -71,7 +71,7 @@ function Toolbar() {
   );
 }
 
-export default function PriceCard() {
+export default function PriceCardContent({ data = {} }) {
   return (
     <CardContainer icon={<SystemPrice />}>
       <div className="flex flex-col gap-[8px]">
