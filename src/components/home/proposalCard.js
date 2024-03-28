@@ -97,7 +97,7 @@ function ProposalList() {
         {isLoading ? (
           <ProposalLoading />
         ) : (
-          (proposals.items || [])?.map((proposal, index) => (
+          (proposals?.items || [])?.map((proposal, index) => (
             <ProposalRow key={index} proposal={proposal} />
           ))
         )}
