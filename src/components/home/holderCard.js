@@ -18,7 +18,7 @@ function QuestionTitle({ title, description }) {
 }
 
 export default function HolderCard() {
-  const { holders } = useBasicData();
+  const { holders = {} } = useBasicData();
   const { all = 0, whales = 0, dolphins = 0 } = holders;
 
   return (
