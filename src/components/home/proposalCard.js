@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import tw from "tailwind-styled-components";
 import CardContainer from "@/components/card/cardContainer";
 import ValueSummary from "@/components/card/valueSummary";
-import { SystemProposal } from "@/components/icons";
+import { SystemLoading, SystemProposal } from "@/components/icons";
 import BigNumber from "bignumber.js";
 import { Link } from "../styled";
 import SocialIconLink from "../socialIcon";
@@ -35,7 +35,54 @@ const TD = tw.td`
   border-strokeDivider
 `;
 
-function ProposalList({ proposals }) {
+function ProposalRow({ proposal }) {
+  const value = new BigNumber(proposal.value).div(Math.pow(10, 18)).toFixed();
+  return (
+    <TR>
+      <TD>
+        <Link
+          className="text14Regular"
+          href={`https://centrifuge.dotreasury.com/#/proposals/${proposal.proposalIndex}`}
+          target="_blank"
+        >
+          #{proposal.proposalIndex}
+        </Link>
+      </TD>
+      <TD>{proposal.description}</TD>
+      <TD>
+        <div className="flex w-full justify-end gap-[8px]">
+          {(proposal.links || []).map((link, index) => (
+            <SocialIconLink key={index} href={link.link} />
+          ))}
+        </div>
+      </TD>
+      <TD className="text-right">
+        <div className="inline-flex flex-col items-end gap-[4px]">
+          <Amount amount={formatBN(value, 3)} unit="CFG" />
+          <span className="text12Regular text-textSecondary">
+            ≈${formatBN(proposal.fiatValue, 3)}
+          </span>
+        </div>
+      </TD>
+    </TR>
+  );
+}
+
+function ProposalLoading() {
+  return (
+    <TR>
+      <TD colSpan={4}>
+        <div className="flex justify-center my-[64px]">
+          <SystemLoading />
+        </div>
+      </TD>
+    </TR>
+  );
+}
+
+function ProposalList() {
+  const { proposals, isLoading } = useProposals();
+
   return (
     <Table>
       <THead>
@@ -47,40 +94,13 @@ function ProposalList({ proposals }) {
         </TR>
       </THead>
       <TBody>
-        {proposals?.map((item, index) => {
-          const value = new BigNumber(item.value)
-            .div(Math.pow(10, 18))
-            .toFixed();
-          return (
-            <TR key={index}>
-              <TD>
-                <Link
-                  className="text14Regular"
-                  href={`https://centrifuge.dotreasury.com/#/proposals/${item.proposalIndex}`}
-                  target="_blank"
-                >
-                  #{item.proposalIndex}
-                </Link>
-              </TD>
-              <TD>{item.description}</TD>
-              <TD>
-                <div className="flex w-full justify-end gap-[8px]">
-                  {(item.links || []).map((link, index) => (
-                    <SocialIconLink key={index} href={link.link} />
-                  ))}
-                </div>
-              </TD>
-              <TD className="text-right">
-                <div className="inline-flex flex-col items-end gap-[4px]">
-                  <Amount amount={formatBN(value, 3)} unit="CFG" />
-                  <span className="text12Regular text-textSecondary">
-                    ≈${formatBN(item.fiatValue, 3)}
-                  </span>
-                </div>
-              </TD>
-            </TR>
-          );
-        })}
+        {isLoading ? (
+          <ProposalLoading />
+        ) : (
+          (proposals.items || [])?.map((proposal, index) => (
+            <ProposalRow key={index} proposal={proposal} />
+          ))
+        )}
       </TBody>
     </Table>
   );
@@ -109,27 +129,16 @@ function useProposals() {
 }
 
 export default function ProposalCard() {
-  const { proposals, isLoading } = useProposals();
-
-  let content = null;
-  if (isLoading) {
-    content = <div className="flex justify-center m-[24px]">Loading...</div>;
-  } else {
-    content = (
-      <div className="flex grow overflow-x-scroll scrollbar-hidden mb-[16px]">
-        <ProposalList
-          proposals={proposals?.items || []}
-          isLoading={isLoading}
-        />
-      </div>
-    );
-  }
-
   return (
-    <CardContainer className="grow max-sm:w-screen" icon={<SystemProposal />}>
+    <CardContainer
+      className="grow max-sm:w-screen overflow-x-scroll scrollbar-hidden"
+      icon={<SystemProposal />}
+    >
       <ValueSummary className="mb-[24px]" title="Treasury" value="Proposals" />
-      <div className="flex flex-col">
-        {content}
+      <div className="flex flex-col overflow-x-scroll scrollbar-hidden">
+        <div className="flex grow overflow-x-scroll scrollbar-hidden mb-[16px]">
+          <ProposalList />
+        </div>
         <div className="mx-[22px]">
           <Link
             href="https://centrifuge.dotreasury.com/#/proposals"
