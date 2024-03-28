@@ -20,8 +20,13 @@ export default function PriceCardContentChart({
       {
         label: "Price",
         data: stats.map?.(([, price]) => price),
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderWidth: 1,
+        borderColor: "#1253ff",
+        backgroundColor: "#1253ff33",
+        pointBorderWidth: 0,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        fill: true,
       },
     ],
   };
