@@ -30,6 +30,8 @@ import LinkCoingecko from "@/imgs/icons/linkCoingecko.svg";
 import LinkCoinmarketcap from "@/imgs/icons/linkCoinmarketcap.svg";
 import Ring from "@/imgs/icons/ring.svg";
 import SystemQuestion from "@/imgs/icons/systemQuestion.svg";
+import SystemLoadingAnimationLight from "@/imgs/icons/systemLoadingAnimationLight.svg";
+import SystemLoadingAnimationDark from "@/imgs/icons/systemLoadingAnimationDark.svg";
 
 function Icon({ DarkIcon, LightIcon, className = "" }) {
   return (
@@ -104,6 +106,14 @@ const SystemProposal = ({ className }) => (
   />
 );
 
+const SystemLoadingAnimation = ({ className }) => (
+  <Icon
+    className={className}
+    DarkIcon={SystemLoadingAnimationDark}
+    LightIcon={SystemLoadingAnimationLight}
+  />
+);
+
 const Theme = ({ className }) => (
   <Icon className={className} DarkIcon={ThemeDark} LightIcon={ThemeLight} />
 );
@@ -117,6 +127,7 @@ export {
   SystemGovernance,
   SystemTreasury,
   SystemProposal,
+  SystemLoadingAnimation,
   Theme,
   LinkDefault,
   LinkWebsite,
