@@ -42,6 +42,11 @@ export function generateMetadata() {
     },
     openGraph: {
       siteName: "Centrifuge Dashboard",
+      images: [
+        {
+          url: "https://cloudflare-ipfs.com/ipfs/QmUEMQY1L4dTSuLz5EyZAtHj9kPwYGYS9SyTwPNPVSK67S",
+        },
+      ],
     },
   };
 }
