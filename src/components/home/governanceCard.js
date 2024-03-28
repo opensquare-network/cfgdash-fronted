@@ -19,8 +19,8 @@ export default function GovernanceCard() {
         value={formatBN(onChain)}
       />
       <div className="flex flex-col">
-        <DetailRow title="On-chain" amount={formatBN(onChain)} unit="CFG" />
-        <DetailRow title="Off-chain" amount={formatBN(offChain)} unit="CFG" />
+        <DetailRow title="On chain" amount={formatBN(onChain)} unit="CFG" />
+        <DetailRow title="Off chain" amount={formatBN(offChain)} unit="CFG" />
       </div>
     </CardContainer>
   );
