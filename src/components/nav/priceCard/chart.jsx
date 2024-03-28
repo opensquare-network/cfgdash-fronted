@@ -36,10 +36,6 @@ export default function PriceCardContentChart({
       type: "line",
       responsive: true,
       maintainAspectRatio: false,
-      hover: {
-        mode: "nearest",
-        intersect: true,
-      },
       animation: {
         duration: 0,
       },
@@ -49,6 +45,7 @@ export default function PriceCardContentChart({
         },
         tooltip: {
           mode: "index",
+          intersect: false,
           bodySpacing: 8,
           callbacks: {
             title(tooltipItems) {
