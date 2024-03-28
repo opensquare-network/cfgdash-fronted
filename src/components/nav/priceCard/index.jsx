@@ -9,22 +9,82 @@ const OPTIONS = [
   {
     label: "7d",
     value: "7d",
+    chartOptions: {
+      scales: {
+        x: {
+          time: {
+            unit: "day",
+          },
+          ticks: {
+            stepSize: 1,
+          },
+        },
+      },
+    },
   },
   {
     label: "1M",
     value: "1M",
+    chartOptions: {
+      scales: {
+        x: {
+          time: {
+            unit: "day",
+          },
+          ticks: {
+            stepSize: 2,
+          },
+        },
+      },
+    },
   },
   {
     label: "3M",
     value: "3M",
+    chartOptions: {
+      scales: {
+        x: {
+          time: {
+            unit: "day",
+          },
+          ticks: {
+            stepSize: 5,
+          },
+        },
+      },
+    },
   },
   {
     label: "1Y",
     value: "1Y",
+    chartOptions: {
+      scales: {
+        x: {
+          time: {
+            unit: "day",
+          },
+          ticks: {
+            stepSize: 22,
+          },
+        },
+      },
+    },
   },
   {
     label: "All",
     value: "All",
+    chartOptions: {
+      scales: {
+        x: {
+          time: {
+            unit: "month",
+          },
+          ticks: {
+            stepSize: 2,
+          },
+        },
+      },
+    },
   },
 ];
 

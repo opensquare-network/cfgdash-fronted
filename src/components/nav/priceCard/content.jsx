@@ -5,7 +5,7 @@ import CardContainer from "../../card/cardContainer";
 import ValueSummary from "../../card/valueSummary";
 import { SystemPrice } from "../../icons";
 import SocialIconLink from "../../socialIcon";
-import { noop } from "lodash-es";
+import { find, noop } from "lodash-es";
 import PriceCardContentChart from "./chart";
 
 function DateItem({ selected, onClick, children }) {
@@ -26,11 +26,12 @@ function DateItem({ selected, onClick, children }) {
 
 export default function PriceCardContent({
   data = {},
-  loading,
   range,
   setRange = noop,
   options = [],
 }) {
+  const { chartOptions = {} } = find(options, { value: range }) || {};
+
   return (
     <CardContainer icon={<SystemPrice />}>
       <div className="flex flex-col gap-[8px]">
@@ -57,7 +58,7 @@ export default function PriceCardContent({
       </div>
 
       <div className="mt-2">
-        <PriceCardContentChart />
+        <PriceCardContentChart data={data} chartOptions={chartOptions} />
       </div>
     </CardContainer>
   );
