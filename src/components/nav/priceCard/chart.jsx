@@ -4,6 +4,7 @@ import { Line } from "react-chartjs-2";
 import "../../chart/config";
 import dayjs from "dayjs";
 import { noop, merge } from "lodash-es";
+import { formatBN } from "@/utils/balance";
 
 export default function PriceCardContentChart({
   data,
@@ -54,7 +55,7 @@ export default function PriceCardContentChart({
               );
             },
             label(tooltipItem) {
-              return tooltipItem.raw;
+              return `$${formatBN(tooltipItem.raw, 3)}`;
             },
           },
           itemSort(a, b) {

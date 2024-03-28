@@ -5,8 +5,9 @@ import CardContainer from "../../card/cardContainer";
 import ValueSummary from "../../card/valueSummary";
 import { SystemLoading, SystemPrice } from "../../icons";
 import SocialIconLink from "../../socialIcon";
-import { find, noop } from "lodash-es";
+import { find, last, noop } from "lodash-es";
 import PriceCardContentChart from "./chart";
+import { formatBN } from "@/utils/balance";
 
 function DateItem({ selected, onClick, children }) {
   return (
@@ -31,12 +32,18 @@ export default function PriceCardContent({
   setRange = noop,
   options = [],
 }) {
+  const stats = data?.stats || [];
+  const latestPrice = last(stats)?.[1] || 0;
+
   const { chartOptions = {} } = find(options, { value: range }) || {};
 
   return (
     <CardContainer icon={<SystemPrice />}>
       <div className="flex flex-col gap-[8px]">
-        <ValueSummary title="Token price" value="$0.9804" />
+        <ValueSummary
+          title="Token price"
+          value={`$${formatBN(latestPrice || 0, 3)}`}
+        />
 
         <div className="flex justify-between items-center">
           <div className="flex gap-[12px]">
