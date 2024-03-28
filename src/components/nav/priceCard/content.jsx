@@ -3,7 +3,7 @@
 import { cn } from "@/utils";
 import CardContainer from "../../card/cardContainer";
 import ValueSummary from "../../card/valueSummary";
-import { SystemPrice } from "../../icons";
+import { SystemLoadingAnimation, SystemPrice } from "../../icons";
 import SocialIconLink from "../../socialIcon";
 import { find, noop } from "lodash-es";
 import PriceCardContentChart from "./chart";
@@ -26,6 +26,7 @@ function DateItem({ selected, onClick, children }) {
 
 export default function PriceCardContent({
   data = {},
+  loading,
   range,
   setRange = noop,
   options = [],
@@ -57,7 +58,19 @@ export default function PriceCardContent({
         </div>
       </div>
 
-      <div className="mt-2">
+      <div className={cn("relative", "mt-2")}>
+        {loading && (
+          <div
+            className={cn(
+              "absolute inset-0",
+              "flex items-center justify-center",
+              "bg-fillCard"
+            )}
+          >
+            <SystemLoadingAnimation />
+          </div>
+        )}
+
         <PriceCardContentChart data={data} chartOptions={chartOptions} />
       </div>
     </CardContainer>
