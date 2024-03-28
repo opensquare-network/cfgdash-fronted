@@ -30,7 +30,7 @@ const Content = tw.div`
 export default function BaseLayout({ nav, themeMode, children }) {
   return (
     <ThemeModeProvider defaultThemeMode={themeMode}>
-      <div className="flex flex-col w-screen">
+      <div className="flex flex-col sm:min-w-[1280px]">
         <TopPanel>
           <Content>{nav}</Content>
         </TopPanel>
