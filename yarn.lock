@@ -3339,6 +3339,7 @@ __metadata:
     axios: "npm:^1.6.8"
     bignumber.js: "npm:^9.1.2"
     chart.js: "npm:^4.4.2"
+    chartjs-plugin-gradient: "npm:^0.6.1"
     clsx: "npm:^2.1.0"
     dayjs: "npm:^1.11.10"
     dotenv: "npm:^16.4.1"
@@ -3401,6 +3402,15 @@ __metadata:
   dependencies:
     "@kurkle/color": "npm:^0.3.0"
   checksum: 10/609444dfc9e847e4c891884309d6083464333e39a7266996fa15f622a44d0c5202c20c86b3bfb1d72b3769096f71c80e131860270c39ce1291cac52b9f45dc6d
+  languageName: node
+  linkType: hard
+
+"chartjs-plugin-gradient@npm:^0.6.1":
+  version: 0.6.1
+  resolution: "chartjs-plugin-gradient@npm:0.6.1"
+  peerDependencies:
+    chart.js: ">=2.6.0"
+  checksum: 10/b1d9ad27f9993843eeed994f3b84eec620d355bbb53214147e522b534b831a9fe9d15084de8e9ea62342e6ee008f5ce239b2075104e3a78da2627f18d92ca6ac
   languageName: node
   linkType: hard
 

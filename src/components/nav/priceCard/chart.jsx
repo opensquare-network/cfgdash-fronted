@@ -5,12 +5,17 @@ import "../../chart/config";
 import dayjs from "dayjs";
 import { noop, merge } from "lodash-es";
 import { formatBN } from "@/utils/balance";
+import { useIsDark, useThemeSetting } from "@/context/theme";
+import light from "@/theme/light";
 
 export default function PriceCardContentChart({
   data,
   onHover = noop,
   chartOptions: chartOptionsProp = {},
 }) {
+  const themeSettings = useThemeSetting();
+  const isDark = useIsDark();
+
   const stats = data?.stats || [];
 
   const labels = stats.map?.(([time]) => time);
@@ -22,12 +27,21 @@ export default function PriceCardContentChart({
         label: "Price",
         data: stats.map?.(([, price]) => price),
         borderWidth: 1,
-        borderColor: "#1253ff",
-        backgroundColor: "#1253ff33",
+        borderColor: themeSettings.strokeChart,
         pointBorderWidth: 0,
         pointRadius: 1,
         pointHitRadius: 10,
         fill: true,
+        gradient: {
+          backgroundColor: {
+            axis: "y",
+            colors: {
+              0: light.fillTabSelected,
+              50: themeSettings.fillChartSecondary,
+              100: themeSettings.fillChartPrimary,
+            },
+          },
+        },
       },
     ],
   };
@@ -68,6 +82,10 @@ export default function PriceCardContentChart({
           position: "right",
           grid: {
             drawTicks: false,
+            color: themeSettings.strokeDivider,
+          },
+          border: {
+            display: false,
           },
         },
         x: {
@@ -79,8 +97,7 @@ export default function PriceCardContentChart({
             unit: "day",
           },
           grid: {
-            zeroLineWidth: 0,
-            color: "rgba(0, 0, 0, 0)",
+            display: false,
           },
           ticks: {
             stepSize: 1,
