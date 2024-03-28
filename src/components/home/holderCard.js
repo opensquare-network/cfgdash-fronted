@@ -6,6 +6,16 @@ import ValueSummary from "@/components/card/valueSummary";
 import { SystemHolder } from "@/components/icons";
 import { useBasicData } from "@/context/basicData";
 import { formatBN } from "@/utils/balance";
+import Tooltip from "@/components/tooltip";
+
+function QuestionTitle({ title, description }) {
+  return (
+    <div className="flex items-center gap-[4px]">
+      <span>{title}</span>
+      <Tooltip content={description} />
+    </div>
+  );
+}
 
 export default function HolderCard() {
   const { holders } = useBasicData();
@@ -19,8 +29,14 @@ export default function HolderCard() {
         value={formatBN(all)}
       />
       <div className="flex flex-col">
-        <DetailRow title="Whales" amount={formatBN(whales)} />
-        <DetailRow title="Dolphins" amount={formatBN(dolphins)} />
+        <DetailRow
+          title={<QuestionTitle title="Whales" description=">= 1M CFG" />}
+          amount={formatBN(whales)}
+        />
+        <DetailRow
+          title={<QuestionTitle title="Dolphins" description="100K - 1M CFG" />}
+          amount={formatBN(dolphins)}
+        />
       </div>
     </CardContainer>
   );
