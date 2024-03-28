@@ -1,6 +1,5 @@
 "use client";
 
-import BigNumber from "bignumber.js";
 import CardContainer from "@/components/card/cardContainer";
 import DetailRow from "@/components/card/detailRow";
 import TokenSummary from "@/components/card/tokenSummary";
