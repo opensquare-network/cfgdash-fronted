@@ -16,6 +16,7 @@
     "bignumber.js": "^9.1.2",
     "chart.js": "^4.4.2",
     "clsx": "^2.1.0",
+    "dayjs": "^1.11.10",
     "dotenv": "^16.4.1",
     "graphql": "^16.8.1",
     "lodash-es": "^4.17.21",

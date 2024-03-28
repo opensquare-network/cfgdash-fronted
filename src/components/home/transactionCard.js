@@ -1,5 +1,6 @@
 "use client";
 
+import dayjs from "dayjs";
 import { Bar } from "react-chartjs-2";
 import "chart.js/auto";
 import CardContainer from "@/components/card/cardContainer";
@@ -47,14 +48,29 @@ export default function TransactionCard() {
       <div className="relative h-[92px]">
         <BarChart
           data={{
-            labels: dailyExtrinsics.map((extrinsic) =>
-              extrinsic.startTime.toString()
-            ),
+            labels: dailyExtrinsics.map((extrinsic, index) => {
+              const label = dayjs(extrinsic.startTime * 1000).format(
+                "YYYY-MM-DD HH:mm"
+              );
+
+              if (index === dailyExtrinsics.length - 1) {
+                return label + " ~ now";
+              } else {
+                return (
+                  label +
+                  " ~ " +
+                  dayjs(dailyExtrinsics[index + 1].startTime * 1000).format(
+                    "YYYY-MM-DD HH:mm"
+                  )
+                );
+              }
+            }),
             datasets: [
               {
-                label: "Extrinsics",
+                label: "Signed extrinsics",
                 data: dailyExtrinsics.map((extrinsic) => extrinsic.count),
-                backgroundColor: "rgba(129, 163, 254, 1)",
+                backgroundColor: "rgba(18, 83, 255, 1)",
+                barPercentage: 0.5,
               },
             ],
           }}
