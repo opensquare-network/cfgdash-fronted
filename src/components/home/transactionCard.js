@@ -52,14 +52,18 @@ export default function TransactionCard() {
               const label = dayjs(extrinsic.startTime * 1000).format(
                 "YYYY-MM-DD HH:mm"
               );
-              if (index === dailyExtrinsics.length - 1) return label;
-              return (
-                label +
-                " ~ " +
-                dayjs(dailyExtrinsics[index + 1].startTime * 1000).format(
-                  "YYYY-MM-DD HH:mm"
-                )
-              );
+
+              if (index === dailyExtrinsics.length - 1) {
+                return label + " ~ now";
+              } else {
+                return (
+                  label +
+                  " ~ " +
+                  dayjs(dailyExtrinsics[index + 1].startTime * 1000).format(
+                    "YYYY-MM-DD HH:mm"
+                  )
+                );
+              }
             }),
             datasets: [
               {
