@@ -29,7 +29,7 @@ import LinkDiscord from "@/imgs/icons/linkDiscord.svg";
 import LinkCoingecko from "@/imgs/icons/linkCoingecko.svg";
 import LinkCoinmarketcap from "@/imgs/icons/linkCoinmarketcap.svg";
 import Ring from "@/imgs/icons/ring.svg";
-import { noop } from "lodash-es";
+import SystemQuestion from "@/imgs/icons/systemQuestion.svg";
 
 function Icon({ DarkIcon, LightIcon, className = "" }) {
   return (
@@ -130,4 +130,5 @@ export {
   LinkCoingecko,
   LinkCoinmarketcap,
   Ring,
+  SystemQuestion,
 };

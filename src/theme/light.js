@@ -17,6 +17,8 @@ const light = {
   theme100: "rgba(255,100,0,1,0.10)",
   theme300: "rgba(255,100,0,1,0.40)",
   theme500: "rgba(255,100,0,1)",
+  tooltipBg: "#000000",
+  textTooltip: "#ffffff",
 };
 
 export default light;
