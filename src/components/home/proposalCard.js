@@ -51,9 +51,6 @@ function ProposalList({ proposals }) {
           const value = new BigNumber(item.value)
             .div(Math.pow(10, 18))
             .toFixed();
-          const fiatValue = new BigNumber(item.symbolPrice)
-            .plus(value)
-            .toFixed();
           return (
             <TR key={index}>
               <TD>
@@ -77,7 +74,7 @@ function ProposalList({ proposals }) {
                 <div className="inline-flex flex-col items-end gap-[4px]">
                   <Amount amount={formatBN(value, 3)} unit="CFG" />
                   <span className="text12Regular text-textSecondary">
-                    ≈${formatBN(fiatValue, 3)}
+                    ≈${formatBN(item.fiatValue, 3)}
                   </span>
                 </div>
               </TD>
