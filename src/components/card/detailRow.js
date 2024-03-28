@@ -10,7 +10,9 @@ export function Amount({ amount, unit }) {
 export default function DetailRow({ title, amount, unit }) {
   return (
     <div className="flex justify-between py-[8px] border-b border-strokeDivider">
-      <span className="text14Regular text-textPrimary">{title}</span>
+      <span className="whitespace-nowrap text14Regular text-textPrimary">
+        {title}
+      </span>
       <Amount amount={amount} unit={unit} />
     </div>
   );

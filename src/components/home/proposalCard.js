@@ -59,7 +59,7 @@ function ProposalList({ proposals }) {
               <TD>
                 <Link
                   className="text14Regular"
-                  href={`https://centrifuge.subsquare.io/treasury/proposals/${item.proposalIndex}`}
+                  href={`https://centrifuge.dotreasury.com/#/proposals/${item.proposalIndex}`}
                   target="_blank"
                 >
                   #{item.proposalIndex}
