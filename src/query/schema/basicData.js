@@ -22,6 +22,11 @@ const BASIC_DATA_QUERY = gql`
         token
         value
       }
+      governanceToken {
+        onChain
+        onChainPercentage
+        offChain
+      }
       signedExtrinsicCount
     }
   }

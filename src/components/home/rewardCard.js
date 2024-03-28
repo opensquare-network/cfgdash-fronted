@@ -8,7 +8,7 @@ import { useBasicData } from "@/context/basicData";
 import { formatBN } from "@/utils/balance";
 
 export default function RewardCard() {
-  const { rewards } = useBasicData();
+  const { rewards = {} } = useBasicData();
   const { total = 0, collator = 0, treasury = 0 } = rewards;
 
   return (

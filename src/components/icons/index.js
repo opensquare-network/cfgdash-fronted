@@ -15,6 +15,8 @@ import SystemTreasuryDark from "@/imgs/icons/systemTreasuryDark.svg";
 import SystemTreasuryLight from "@/imgs/icons/systemTreasuryLight.svg";
 import SystemProposalDark from "@/imgs/icons/systemProposalDark.svg";
 import SystemProposalLight from "@/imgs/icons/systemProposalLight.svg";
+import SystemLoadingAnimationDark from "@/imgs/icons/systemLoadingAnimationDark.svg";
+import SystemLoadingAnimationLight from "@/imgs/icons/systemLoadingAnimationLight.svg";
 import ThemeDark from "@/imgs/icons/themeDark.svg";
 import ThemeLight from "@/imgs/icons/themeLight.svg";
 import LinkDefault from "@/imgs/icons/linkDefault.svg";
@@ -106,7 +108,7 @@ const SystemProposal = ({ className }) => (
   />
 );
 
-const SystemLoadingAnimation = ({ className }) => (
+const SystemLoading = ({ className }) => (
   <Icon
     className={className}
     DarkIcon={SystemLoadingAnimationDark}
@@ -127,7 +129,7 @@ export {
   SystemGovernance,
   SystemTreasury,
   SystemProposal,
-  SystemLoadingAnimation,
+  SystemLoading,
   Theme,
   LinkDefault,
   LinkWebsite,
