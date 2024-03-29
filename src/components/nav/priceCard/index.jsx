@@ -1,14 +1,13 @@
 "use client";
 
-import { getPrice } from "@/query/coingecko/price";
+import { useQueryPrices } from "@/hooks/prices";
 import PriceCardContent from "./content";
 import { useState } from "react";
-import { useAsync } from "react-use";
 
 const OPTIONS = [
   {
     label: "7d",
-    value: "7d",
+    value: "DAY_7",
     chartOptions: {
       scales: {
         x: {
@@ -24,7 +23,7 @@ const OPTIONS = [
   },
   {
     label: "1M",
-    value: "1M",
+    value: "DAY_30",
     chartOptions: {
       scales: {
         x: {
@@ -40,7 +39,7 @@ const OPTIONS = [
   },
   {
     label: "3M",
-    value: "3M",
+    value: "DAY_90",
     chartOptions: {
       scales: {
         x: {
@@ -56,7 +55,7 @@ const OPTIONS = [
   },
   {
     label: "1Y",
-    value: "1Y",
+    value: "DAY_365",
     chartOptions: {
       scales: {
         x: {
@@ -70,7 +69,8 @@ const OPTIONS = [
       },
     },
   },
-  {
+  // all
+  /* {
     label: "All",
     value: "All",
     chartOptions: {
@@ -85,17 +85,17 @@ const OPTIONS = [
         },
       },
     },
-  },
+  }, */
 ];
 
 export default function PriceCard() {
   const [range, setRange] = useState(OPTIONS[0].value);
-  const state = useAsync(async () => await getPrice(range), [range]);
+  const { data, loading } = useQueryPrices(range);
 
   return (
     <PriceCardContent
-      data={state.value}
-      loading={state.loading}
+      data={data}
+      loading={loading}
       range={range}
       setRange={setRange}
       options={OPTIONS}
