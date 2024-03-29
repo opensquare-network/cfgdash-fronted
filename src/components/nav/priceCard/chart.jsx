@@ -5,7 +5,7 @@ import "../../chart/config";
 import dayjs from "dayjs";
 import { noop, merge } from "lodash-es";
 import { formatBN } from "@/utils/balance";
-import { useIsDark, useThemeSetting } from "@/context/theme";
+import { useThemeSetting } from "@/context/theme";
 import light from "@/theme/light";
 
 export default function PriceCardContentChart({
@@ -14,18 +14,17 @@ export default function PriceCardContentChart({
   chartOptions: chartOptionsProp = {},
 }) {
   const themeSettings = useThemeSetting();
-  const isDark = useIsDark();
 
-  const stats = data?.stats || [];
+  const prices = data?.prices || [];
 
-  const labels = stats.map?.(([time]) => time);
+  const labels = prices.map?.(({ time }) => time);
 
   const chartData = {
     labels,
     datasets: [
       {
         label: "Price",
-        data: stats.map?.(([, price]) => price),
+        data: prices.map?.(({ price }) => price),
         borderWidth: 1,
         borderColor: themeSettings.strokeChart,
         pointBorderWidth: 0,

@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 const BASIC_DATA_QUERY = gql`
   query MyQuery {
     basicData {
+      cfgPrice
       holders {
         all
         whales
