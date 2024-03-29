@@ -7,6 +7,7 @@ import { noop, merge } from "lodash-es";
 import { formatBN } from "@/utils/balance";
 import { useThemeSetting } from "@/context/theme";
 import light from "@/theme/light";
+import { useWindowSize } from "react-use";
 
 export default function PriceCardContentChart({
   data,
@@ -14,6 +15,8 @@ export default function PriceCardContentChart({
   chartOptions: chartOptionsProp = {},
 }) {
   const themeSettings = useThemeSetting();
+
+  const { width } = useWindowSize();
 
   const prices = data?.prices || [];
 
@@ -113,7 +116,7 @@ export default function PriceCardContentChart({
 
   return (
     <div className="w-full h-[200px]">
-      <Line options={chartOptions} data={chartData} />
+      <Line key={width} options={chartOptions} data={chartData} />
     </div>
   );
 }
