@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import BigNumber from "bignumber.js";
 import tw from "tailwind-styled-components";
 import CardContainer from "@/components/card/cardContainer";
 import ValueSummary from "@/components/card/valueSummary";
 import { SystemLoading, SystemProposal } from "@/components/icons";
-import BigNumber from "bignumber.js";
 import { Link } from "../styled";
 import SocialIconLink from "../socialIcon";
 import { formatBN } from "@/utils/balance";
 import { Amount } from "../card/detailRow";
+import useFetch from "@/hooks/useFetch";
 
 const Table = tw.table`
   w-full
@@ -105,21 +105,9 @@ function ProposalList({ proposals, isLoading }) {
 }
 
 function useProposals() {
-  const [proposals, setProposals] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetch("https://centrifuge-api.dotreasury.com/proposals?page=0&page_size=20")
-      .then(async (res) => {
-        const data = await res.json();
-        setProposals(data);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
-
+  const { value: proposals, loading: isLoading } = useFetch(
+    "https://centrifuge-api.dotreasury.com/proposals?page=0&page_size=20"
+  );
   return {
     proposals,
     isLoading,

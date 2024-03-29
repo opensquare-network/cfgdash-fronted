@@ -16,10 +16,6 @@ export default function PageHead() {
           __html: `
           :root {${buildThemeVariables(light)}}
           .dark:root {${buildThemeVariables(dark)}}
-
-          body {
-            background-color: var(--pageBg);
-          }
         `,
         }}
       />
