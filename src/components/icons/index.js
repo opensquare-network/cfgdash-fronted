@@ -115,7 +115,7 @@ const SystemLoading = ({ className }) => (
 );
 
 const Theme = ({ className }) => (
-  <Icon className={className} DarkIcon={ThemeDark} LightIcon={ThemeLight} />
+  <Icon className={className} DarkIcon={ThemeLight} LightIcon={ThemeDark} />
 );
 
 export {

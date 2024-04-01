@@ -11,9 +11,7 @@ export default function ChainInfo() {
       </div>
       <div className="flex flex-col gap-[8px]">
         <span className="text40Semibold text-textPrimary">Centrifuge</span>
-        <span className="text16Regular text-textSecondary">
-          Token Dashbaord
-        </span>
+        <span className="text16Regular text-textSecondary">Dashboard</span>
       </div>
       <div className="flex gap-[12px]">
         <SocialIconLinkWrapper href="https://centrifuge.io/">
