@@ -9,6 +9,7 @@ import { SystemTransaction } from "@/components/icons";
 import { useBasicData } from "@/context/basicData";
 import { useDailyExtrinsics } from "@/context/dailyExtrinsics";
 import { formatBN } from "@/utils/balance";
+import { useThemeSetting } from "@/context/theme";
 
 function BarChart({ data }) {
   const options = {
@@ -39,6 +40,7 @@ function BarChart({ data }) {
 export default function TransactionCard() {
   const { signedExtrinsicCount = 0 } = useBasicData();
   const dailyExtrinsics = useDailyExtrinsics();
+  const { fillChartPrimary } = useThemeSetting();
 
   return (
     <CardContainer
@@ -73,7 +75,7 @@ export default function TransactionCard() {
               {
                 label: "Signed extrinsics",
                 data: dailyExtrinsics.map((extrinsic) => extrinsic.count),
-                backgroundColor: "rgba(18, 83, 255, 1)",
+                backgroundColor: fillChartPrimary,
                 barPercentage: 0.5,
               },
             ],
